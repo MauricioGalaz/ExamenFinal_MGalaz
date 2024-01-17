@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin: auto;
+        }
+
+        h1 {
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            width: 200px; /* Ajusta según sea necesario */
+            height: 50px; /* Altura del cuadro de entrada */
+            line-height: 50px; /* Centra el texto verticalmente */
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        button {
+            background-color: #008CBA;
+            color: white;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .mensaje-bienvenida {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .mensaje-error {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inicio de sesión</h1>
+    <form method="post">
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="usuario" required>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" name="contrasena" required>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    {% if mensaje_bienvenida %}
+        <p class="mensaje-bienvenida">{{ mensaje_bienvenida }}</p>
+    {% elif mensaje_error %}
+        <p class="mensaje-error">{{ mensaje_error }}</p>
+    {% endif %}
+</body>
+</html>
